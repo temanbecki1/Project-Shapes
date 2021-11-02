@@ -25,7 +25,7 @@ public class Triangle extends TwoDimensionShape{
 
     @Override
     public String toString(){
-        return "Area of Triangle is : " + getArea();
+        return "Area of Triangle : " + getArea();
     }
 
     

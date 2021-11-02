@@ -21,7 +21,7 @@ public class Shape{
         return shapeType;
     }
 
-    public void setShapeType(String shapeType){
+    public void setShapeType(String shapeType){             //sets the shapeType for this instance of Shape object
         this.shapeType = shapeType;
     }
 }
