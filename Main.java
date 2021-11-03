@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 /*
+* File : Main.java
 * Author : Teman Beck
 * CMSC 335 Project 1 Shapes
 * Date : November 2nd, 2021
-* This class contains our main method. It will serve as controller for application interaction
+* This class contains the main method. It will serve as controller for application interaction
 *
 */
 
@@ -138,6 +139,8 @@ public class Main {
                 if(isNumeric(radius) && isNumeric(height)){
                     Cone myCone = new Cone(shapeType, Double.parseDouble(radius), Double.parseDouble(height));
                     System.out.println("The volume of this " + shapeType + " is " + String.format("%.2f", myCone.getVolume()));
+                } else {
+                    System.out.println("You have entered an invalid radius or height.");
                 }
                 break;
 
@@ -152,6 +155,8 @@ public class Main {
                 if(isNumeric(radius) && isNumeric(height)){
                     Cylinder myCylinder = new Cylinder(shapeType, Double.parseDouble(radius), Double.parseDouble(height));
                     System.out.println("The volume of this " + shapeType + " is " + String.format("%.2f", myCylinder.getVolume()));
+                } else{
+                    System.out.println("You have entered an invalid radius or height.");
                 }
                 break;
 
@@ -166,6 +171,8 @@ public class Main {
                 if(isNumeric(radius) && isNumeric(minorRadius)){
                     Torus myTorus = new Torus(shapeType, Double.parseDouble(minorRadius), Double.parseDouble(radius));
                     System.out.println("The volume of this " + shapeType + " is " + String.format("%.2f", myTorus.getVolume()));
+                } else{
+                    System.out.println("You have entered an invalid major or minor radius.");
                 }
                 break;
 
@@ -188,9 +195,10 @@ public class Main {
         }
         try{
             Double.parseDouble(test);
+            return true;
         } catch(NumberFormatException nfe){
             return false;
         }
-        return true;
+        //return true;
     }
 }
