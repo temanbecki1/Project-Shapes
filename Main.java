@@ -11,8 +11,11 @@ import java.util.Scanner;
 
 
 public class Main {
+    private static String shapeType;
+
     public static void main(String[] args){
         Scanner scanner = new Scanner (System.in);
+        String radius;
 
         while(true){
             System.out.println("********************** Welcome to the Java OO Shapes Program *************************");
@@ -35,6 +38,17 @@ public class Main {
             switch(userSelection){
                 case "1":
                 System.out.println("You have selected a Circle");
+                shapeType = "Circle";
+                System.out.println("What is the radius?");
+                radius = scanner.next();                    //assigns next user input to radius String
+                
+                if(isNumeric(radius)){
+                    Circle myCircle = new Circle(shapeType, Double.parseDouble(radius));
+                    System.out.println("The area of this " + shapeType + " is " + String.format("%.2f", myCircle.getArea()));
+                } else {
+                    System.out.println("You have entered an invalid radius.");
+                }
+
                 break;
                 case "2":
                 System.out.println("You have selected a Rectangle");
@@ -70,6 +84,17 @@ public class Main {
                 System.out.println("You have entered an invalid option");
             }
         }
-    }
+    } 
     
+    public static boolean isNumeric(String test){
+        if(test == null){
+            return false;
+        }
+        try{
+            Double.parseDouble(test);
+        } catch(NumberFormatException nfe){
+            return false;
+        }
+        return true;
+    }
 }
